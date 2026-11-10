@@ -11,5 +11,15 @@ describe('My Login application', () => {
         await expect(SecurePage.flashAlert).toHaveText(
             expect.stringContaining('You logged into a secure area!'))
     })
+
+    it('should show the alert when login is awaited', async () => {
+        await LoginPage.open()
+
+        const loggedIn = LoginPage.login('tomsmith', 'SuperSecretPassword!')
+            .then(() => SecurePage.flashAlert.waitForExist())
+
+        await loggedIn
+        await expect(SecurePage.flashAlert).toBeExisting({ wait: 0 })
+    })
 })
 

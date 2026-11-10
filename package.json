@@ -6,9 +6,11 @@
     "@wdio/cli": "^10.2.0",
     "@wdio/local-runner": "^10.2.0",
     "@wdio/mocha-framework": "^10.2.0",
-    "@wdio/spec-reporter": "^10.2.0"
+    "@wdio/spec-reporter": "^10.2.0",
+    "pg": "^8.23.1"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio": "wdio run ./wdio.conf.js",
+    "test:api": "wdio run ./wdio.api.conf.js"
   }
 }
